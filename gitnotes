@@ -1,0 +1,25 @@
+Git notes
+
+dont merge to master until time for production
+continuously update local master and feature branches
+lock the master branch
+- no direct commits
+- no direct merges with apporoval
+always check diff when merging
+mandatory peer approver. should not be able to merge without an approval.
+TODO: Create a hook script to update local branches from remote before push
+
+--rebase
+git checkout master
+git pull
+git checkout feature
+git rebase master
+git push
+
+--merge
+git checkout master #
+git pull # update local master from remote master
+git checkout <your_branch>
+git merge master # solve merge conflicts if you have`
+git push
+
