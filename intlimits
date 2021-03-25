@@ -1,0 +1,31 @@
+the size of the INTEGER is 32 bits. meaning it can hold a total 2^32 values
+2^32 = 4294967296 but because the default INTEGER type holds a sign (positive or negative) it means that it can hold values between -2147483648 to 2147483647
+UNSIGNED integer is only positive and can hold values between 0 and 4294967295
+using typeset -ui should work in your case.
+The command I gave you with your output
+LONG_BIT 64
+ULONG_MAX 18446744073709551615
+means that the configuration for your system means that the LONG INTEGER consists of 64 bits and unsigned LONG int has max value of 18446744073709551615
+if you need bigger numbers you use long (-l) which holds values between
+-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+or unsigned long (-ul) which holds values between 0 and 18,446,744,073,709,551,615
+
+
+I actually did it from my memory and it took me some time to find the page
+https://docstore.mik.ua/orelly/unix3/korn/appb_08.htm
+Trailing type suffixes Integer constants can have a trailing U or L suffix to indicate that they are unsigned or long, respectively. While the lowercase versions may also be used, this is not recommended, since it is easy to confuse an l (letter ell) with a 1 (digit one). docstore.mik.ua/orelly/unix3/korn/appb_08.htm
+so I messed it up a little bit
+-i = integer
+-ui = unsigned integer
+-il long unteger
+-uil = unsigned long integer
+in your case -ui should work but you can experiment with the oters
+*others
+if you need bigger numbers
+User Avatar
+or use negative values
+
+-ul treats it like a string
+-uil or -il
+
+so the largest possible positive integer will be provided by -uil not -il since its unsigned so doesn't have negative integers
