@@ -19,13 +19,11 @@ so I messed it up a little bit
 -ui = unsigned integer
 -il long unteger
 -uil = unsigned long integer
-in your case -ui should work but you can experiment with the oters
-*others
+in your case -ui should work but you can experiment with the others
 if you need bigger numbers
-User Avatar
 or use negative values
 
 -ul treats it like a string
--uil or -il
+-uil or -il - will be integers (can do add subtract etc.)
 
-so the largest possible positive integer will be provided by -uil not -il since its unsigned so doesn't have negative integers
+so the largest possible *positive* integer will be provided by -uil not -il since its unsigned so doesn't have negative integers
