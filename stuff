@@ -1,1 +1,0 @@
-os.remove(migr_path)
