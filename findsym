@@ -1,1 +1,5 @@
 find /path/to/dir -type l | xargs ls -l | awk {'print $11'} | sort | uniq > /path/to/outputfile
+
+
+find /path/to/search -type l | xargs ls -l | awk {'print $11'} | sort | uniq | grep "[A-Z][A-Z][A-Z]" | sed 's/\([A-Z][A-Z][A-Z]\).*$//'
+
