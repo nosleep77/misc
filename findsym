@@ -1,0 +1,1 @@
+find /path/to/dir -type l | xargs ls -l | awk {'print $11'} | sort | uniq > /path/to/outputfile
