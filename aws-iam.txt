@@ -1,0 +1,35 @@
+
+AWS IAM policies
+effect - allow/deny
+action - createBucket/etc
+resource - any,s3,ec2
+condition - loggedIn/sourceIP/anything else
+
+
+Auto scaling group with ELB
+Auto scaling group with ELB (with Spot)
+
+EKS+ECR with Fargate
+EKS with Fargate + Fargate spot
+
+ECS+ECR with Fargate
+ECS+ECR with Fargate + Fargate spot
+
+S3 for static site
+
+Monitoring
+Logging
+
+VPC
+Interconnected VPCs (Transit VPC)
+
+Backup and Recovery
+
+Git and CICD
+
+Lambda
+Beanstalk
+
+API Gateway
+
+
