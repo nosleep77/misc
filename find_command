@@ -1,0 +1,91 @@
+
+## find
+# name vs iname
+# iname ignores case
+
+# -print vs -print0
+# -print applies to the command anyway - newline
+# -print0 would output on same line
+
+find . -name *file1*
+find . -iname *file1*
+find . -name '*ile1*' -exec rm -i {} \;
+find . -empty # search for empty files/dirs
+find . -perm 664 # find files with these perms
+find . -user ubuntu
+find /var/log/ -name `*.temp` -delete
+
+# Find all the files without permission 777.
+find / -type f ! -perm 777
+
+This command print lines which have ‘Geek’ in them and ‘-type f’ specifies the input type is a file.
+find ./ -type f -name "*.txt" -exec grep 'Geek'  {} \;
+
+find . -type d
+f: a regular file
+d: directory
+l: symbolic link
+c: character devices
+b: block devices
+p: named pipe (FIFO)
+s: socket
+
+find /var/www/my_website -type f -exec chmod 0644 {} \;
+
+find . -iname '*ile*'   ## have to quote it
+./tracker-extract-files.1000
+./file1
+./fileB
+
+## find files by size
+find /tmp -type f -size 1024c
+
+b: 512-byte blocks (default)
+c: bytes
+w: two-byte words
+k: Kilobytes
+M: Megabytes
+G: Gigabytes
+
+find / -size +50M -size -100M     # find all the files which are greater than 50MB and less than 100MB
+
+find . -size -1M #files less than 1M
+
+find . -mtime -1 # filed mod less than a day ago
+find / -mtime 50 # find all the files which are modified 50 days back
+find / -atime 50 # find all the files which are accessed 50 days back.
+
+find / -cmin -60    # find all the files which are modified in the last 1 hour
+find / -amin -60    # find all the files which are accessed in the last 1 hour
+
+
+# command will match all the files with read permissions set for either user, group, or others.
+find . -perm /444
+
+find . -type f -name "*.txt" -exec rm -f {} \;
+
+# find all empty files under a certain path
+find /tmp -type f -empty
+
+# find all hidden files, use the below command
+find /tmp -type f -name ".*"
+
+# find all files that belong to the group Developer under /home directory
+find /home -group developer
+
+
+# search for the files that were modified after the ‘file’ (it can be any file).
+find -newer file.txt
+
+
+find ./ -name "*.page" -type f -print0 | xargs -0 tar -cvzf page_files.tar.gz
+
+
+## -H, --with-filename:  Print the filename for each match.
+find . -name '*bills*' -exec grep -H "put" {} \;
+
+find . -name '*.axvw' -exec grep -n 'some string' {} +
+
+find /path -type f | parallel --gnu --workdir "$PWD" -j 8 '
+    grep -i -r 'the brown dog' {} 
+'
