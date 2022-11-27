@@ -1,0 +1,18 @@
+It's the shell that provides auto-completion. In bash's case, there's a command 
+called complete that's used to tell it what to do when tab-complete is called for. 
+So if you have tab completion enabled for terraform, you should 
+be able to do complete -p to list out all of the auto-completions set up in your 
+current shell environment. Find "terraform" in that list:
+
+complete -p | grep terraform
+When I do that, it says this:
+
+complete -F _minimal terraform
+So now to set up your alias command to have the same auto-completion function, you'd run that same command for it:
+
+complete -F _minimal tfm
+Run that and try tab-completion on tfm. And, obviously, to run that same command every time you 
+login to your shell, put it in your shell's startup file. (.bashrc for bash)
+
+There are situations where this might not work, if the auto-completion function is 
+funky and checks the actual command run. But I've never personally had that issue. It's always worked for me.
