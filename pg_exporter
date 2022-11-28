@@ -1,0 +1,20 @@
+secrets
+=======
+apiVersion: v1
+kind: Secret
+metadata:
+  name:  my-pg-exporter-prometheus-postgres-exporter
+  labels:
+    app: prometheus-postgres-exporter
+    chart: prometheus-postgres-exporter-0.4.0
+    release:  my-pg-exporter
+type: Opaque
+data:
+  data_source_name: "cG9zdGdyZXNxbDovL3Bvc3RncmVzOjUzOUFBSFg1Q2dAcGcxLXBvc3RncmVzcWw6NTQzMi9wb3N0Z3Jlcz9zc2xtb2RlPWRpc2FibGUscG9zdGdyZXNxbDovL3Bvc3RncmVzOkZTTlEzTm93d1ZAcGcyLXBvc3RncmVzcWw6NTQzMi9wb3N0Z3Jlcz9zc2xtb2RlPWRpc2FibGU="
+  
+  
+values
+======
+  datasourceSecret: 
+    name: my-pg-exporter-prometheus-postgres-exporter 
+    key: data_source_name
